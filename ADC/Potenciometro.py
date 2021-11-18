@@ -3,11 +3,11 @@ from time import sleep
 
 LED_BUILTIN = Pin( 25, Pin.OUT )
 
-RELE_1 = Pin( 17, Pin.OUT )
-RELE_2 = Pin( 16, Pin.OUT )
+RELE_1 = Pin( 17, Pin.OUT ) # Red Led
+RELE_2 = Pin( 16, Pin.OUT ) # Blue Led 
 
-POTENCIOMETRO_1 = ADC(1) 
-POTENCIOMETRO_2 = ADC(0)
+POTENCIOMETRO_1 = ADC(1) # Yellow wire 
+POTENCIOMETRO_2 = ADC(0) # Blue wire 
 
 FACTOR = 3.3/ 2**16
 
@@ -28,3 +28,4 @@ while True:
     LED_BUILTIN.toggle()
 
     sleep(1)
+    

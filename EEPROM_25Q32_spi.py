@@ -2,13 +2,13 @@ import machine
 import utime
 
 # PROGRAMAÇÃO DO EEPROM 25Q32
-WRITE_ENABLE      = 0x06 #Address Write Enable
-WRITE_DISABLE     = 0x04 #Address Write Disable
-CHIP_ERASE        = 0xc7 #Address Chip Erase
-READ_STATUS       = 0x05 #Address Read Status
-READ_DATA         = 0x03 #Address Read Data
-PAGE_PROGRAM_STAT = 0x02 #Address Status Page Program
-CHIP_COMMAND_ID   = 0x9f #Address Status Read Id 
+WRITE_ENABLE      = 0x06        #Address Write Enable
+WRITE_DISABLE     = 0x04        #Address Write Disable
+CHIP_ERASE        = 0xc7        #Address Chip Erase
+READ_STATUS       = 0x05        #Address Read Status
+READ_DATA         = 0x03        #Address Read Data
+PAGE_PROGRAM_STAT = 0x02        #Address Status Page Program
+CHIP_COMMAND_ID   = 0x9f        #Address Status Read Id 
 
 class EEPROM:
     
