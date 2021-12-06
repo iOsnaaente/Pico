@@ -1,0 +1,74 @@
+pull() 			-> to get an parameter externaly 
+mov( y, osr ) 		-> to set the y variable with the value got by the pull() upside 
+
+pull()
+mov( x, osr ) 		-> the same thing before. Now x will get the second parameter 
+
+jmp( not_x , 'end' )  -> Move to 'end' label if xvalue is 0 
+
+
+
+label( 'loop' ) 	-> define a label to use the jump function 
+
+jmp( not_osr, 'step') 	-> if osr is empty, jump to 'step' 
+
+
+label ( 'step' ) 
+out( pins, 4) [31] 	-> put out some value, in this case is pins
+nop() [ 31 ]  
+nop() [ 31 ]  
+nop() [ 31 ] 
+
+jmp( x_dec, 'loop' )  	-> test x value and if is not zero and decrement if it is true 
+
+label( 'end' ) 
+set( pins, 8) [ 31 ] 
+
+
+# In the main loop use the following functions line 
+
+sm = StateMachine() 
+
+sm.active(1) 		-> active the state machine 
+sm.put( 2216789025 ) 	-> put the first value in the y variable 
+sm.put( 1000 ) 		-> put the second value in the x variable  
+
+# The estruct below means the end of script 
+sleep(1)
+sm.active(0) 
+sm.exec( 'set(pins,0)' ) 
+
+
+
+
+
+
+
+
+# another explanation 
+
+sm = StateMachine( PIONumber, PIOfunction, freq=freq, set_base = Pin(Pin_number)[the pins where the pio will be stated using an offset] ) 
+sm = StateMachine( 0, prog, freq = 10000, set_base = Pin(2)) 
+
+sm.active(1 or True ) 
+
+@asm_pio( set_init = (PIO.OUT_LOW, ) *4 
+def prog(): # function used by the PIO 
+
+	wrap_target() # like an label, but without an stop parameter 
+	set( pins, 8h ) [31] -> the 8h is in binarie  0001 -> the [31] is an delay in clicles of clock 
+	nop() [31]
+	set( pins, 4h ) [31] -> the 8h is in binarie  0001 -> the [31] is an delay in clicles of clock 
+	nop() [31]
+	set( pins, 2h ) [31] -> the 8h is in binarie  0001 -> the [31] is an delay in clicles of clock 
+	nop() [31]
+	set( pins, 1h ) [31] -> the 8h is in binarie  0001 -> the [31] is an delay in clicles of clock 
+	nop() [31]
+	wrap() -> go to the warp_target 
+
+
+
+pull = is how we can communicate the main machine with the PIO 
+osr  = output shift register 
+scrath register is where the values is load - variables 
+we can use x and y variables 

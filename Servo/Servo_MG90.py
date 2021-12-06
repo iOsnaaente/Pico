@@ -25,3 +25,8 @@ while True:
   # Move o servo até 180º (12% do duty cycle )
   servo.duty_u16(8200)
   sleep(1)
+  
+  
+  
+  
+  
