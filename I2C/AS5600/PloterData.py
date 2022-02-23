@@ -4,8 +4,8 @@ import struct
 import serial 
 import time 
 
-COMPORT = 'COM15'
-BAUDRATE = 9600
+COMPORT = 'COM12'
+BAUDRATE = 19200
 
 
 print( "Versão do DearPyGui: ", dpg.get_dearpygui_version() )

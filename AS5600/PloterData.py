@@ -4,7 +4,7 @@ import struct
 import serial 
 import time 
 
-COMPORT = 'COM15'
+COMPORT = 'COM16'
 BAUDRATE = 9600
 
 
